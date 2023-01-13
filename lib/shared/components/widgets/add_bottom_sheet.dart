@@ -1,32 +1,23 @@
 import 'package:flutter/material.dart';
+import 'button.dart';
+import 'text_field.dart';
 
-import '../../shared/components/widgets/button.dart';
-import '../../shared/components/widgets/text_field.dart';
-
-class EditeScreen extends StatelessWidget {
-  const EditeScreen({Key? key}) : super(key: key);
+class AddNoteBottomSheet extends StatelessWidget {
+  const AddNoteBottomSheet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Edite Notes',
-          style: Theme.of(context)
-              .textTheme
-              .bodyText1!
-              .copyWith(fontSize: 25, fontWeight: FontWeight.bold),
-        ),
-      ),
-      body: Column(
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Column(
         children: [
           Padding(
               padding: const EdgeInsets.only(top: 15.0),
-              child: Text('Edit Your Note Now !!',
+              child: Text('Add New Notes',
                   style: Theme.of(context)
                       .textTheme
                       .bodyText1!
-                      .copyWith(fontSize: 20, fontWeight: FontWeight.bold))),
+                      .copyWith(fontSize: 25, fontWeight: FontWeight.bold))),
           Column(
             children: [
               const SizedBox(
@@ -35,7 +26,7 @@ class EditeScreen extends StatelessWidget {
               Container(
                 height: 2,
                 width: 30,
-                color: Colors.amber,
+                color: Colors.red,
               ),
               const SizedBox(
                 height: 3,
@@ -79,7 +70,7 @@ class EditeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: defaultButton(
               context: context,
-              name: 'Save Change ',
+              name: 'Add Notes',
               onPressed: () {},
             ),
           ),
