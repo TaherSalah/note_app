@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:notes/models/onBoarding/onBoarding_screen.dart';
+import 'package:notes/shared/style/constance.dart';
 
 
 void main()async {
-
+  await Hive.initFlutter();
+  //// open box ////
+ await Hive.openBox(kNotesBox);
   runApp(const MyApp());
 }
 
