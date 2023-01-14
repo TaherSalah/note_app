@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../shared/components/widgets/app_bar.dart';
-import '../../shared/components/widgets/custom_items_builder.dart';
+import '../../shared/components/widgets/items_builder.dart';
 import '../../shared/components/widgets/custom_nav_bar.dart';
 import '../../shared/components/widgets/notes_list_view.dart';
 

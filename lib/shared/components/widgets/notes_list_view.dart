@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notes/models/edite_notes/edite_screen.dart';
-import 'package:notes/shared/components/widgets/custom_navigate_and_finish.dart';
+import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
 
-import 'custom_items_builder.dart';
+import 'items_builder.dart';
 
 class ListViewBuilder extends StatelessWidget {
   const ListViewBuilder({Key? key}) : super(key: key);

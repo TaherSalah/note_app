@@ -6,7 +6,7 @@ class NoteItemsBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left:6.0,right: 6,bottom: 6.5),
+      padding: const EdgeInsets.only(left: 8.0,right: 8,bottom: 4),
       child: Column(
         children: [
           Card(
@@ -45,7 +45,7 @@ class NoteItemsBuilder extends StatelessWidget {
                       child: Text(
                         textAlign: TextAlign.justify,
                         maxLines: 4,
-                        'simply dummy text of the printing text of the printing atext of the printing atext of the printing atext of the printing atext of the printing a and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,',
+                        'simply dummy text of the printing text of the printing text of the printing text of the printing text of the printing atext of the printing a and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,',
                         style: TextStyle(
                             overflow: TextOverflow.ellipsis,
                             fontSize: 17,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/shared/components/widgets/custom_button.dart';
-import 'package:notes/shared/components/widgets/custom_navigate_and_finish.dart';
+import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
 
