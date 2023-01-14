@@ -7,28 +7,29 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Column(
-      children:  [
+    return SingleChildScrollView(
+      child: Column(
+        children:  [
 
-        const SizedBox(height:20 ,),
-        TextField(
-          maxLines: maxLines,
-          cursorColor: Colors.amber,
-          decoration: InputDecoration(
-            hintText: hint,
+          const SizedBox(height:20 ,),
+          TextField(
+            maxLines: maxLines,
+            cursorColor: Colors.amber,
+            decoration: InputDecoration(
+              hintText: hint,
 
-            focusColor: Colors.amber,
-              border: const OutlineInputBorder(
-                  borderSide: BorderSide(
-                color: Colors.amber,
-              )),
-            enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color:Colors.amber, )),
+              focusColor: Colors.amber,
+                border: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                  color: Colors.amber,
+                )),
+              enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color:Colors.amber, )),
 
-
+            ),
           ),
-        ),
 
-      ],
+        ],
+      ),
     );
   }
 }

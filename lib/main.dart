@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:notes/models/onBoarding/onBoarding_screen.dart';
 
 
 void main()async {
-  await Hive.initFlutter();
+
   runApp(const MyApp());
 }
 
