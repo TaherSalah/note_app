@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/models/notes/notes_screen.dart';
+import 'package:notes/shared/components/widgets/custom_button.dart';
 import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
 
 import '../../../shared/components/widgets/already_have_an_account_acheck.dart';
@@ -47,14 +48,7 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           Hero(
             tag: "login_btn",
-            child: ElevatedButton(
-              onPressed: () {
-                navigateAndFinish(context, NotesScreen());
-              },
-              child: Text(
-                "Login".toUpperCase(),
-              ),
-            ),
+            child:buttonElevated(label: 'Sign in',)
           ),
           const SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(
@@ -63,7 +57,7 @@ class LoginForm extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return const SignUpScreen();
+                    return const NotesScreen();
                   },
                 ),
               );

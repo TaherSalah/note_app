@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../style/constance.dart';
+
 Widget defaultButton(
     {
       required BuildContext context,
@@ -28,3 +30,19 @@ Widget defaultButton(
         ),
       )),
 );
+Widget buttonElevated ({
+  VoidCallback? onPress,
+ required String label,
+})
+{
+return  ElevatedButton(
+    onPressed: onPress,
+    style: ElevatedButton.styleFrom(
+        backgroundColor: kPrimaryLightColor, elevation: 0,padding:const EdgeInsets.symmetric(horizontal: 45,vertical: 13),shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+    child: Text(
+      label,
+      style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontFamily: 'cairo',),
+    ),
+  );
+}
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../shared/style/constance.dart';
+import 'package:notes/shared/components/widgets/custom_button.dart';
+import 'package:notes/shared/components/widgets/custom_navigate_and_finish.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
 
@@ -14,41 +15,11 @@ class LoginAndSignupBtn extends StatelessWidget {
       children: [
         Hero(
           tag: "login_btn",
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return LoginScreen();
-                  },
-                ),
-              );
-            },
-            child: Text(
-              "Login".toUpperCase(),
-            ),
-          ),
+          child: buttonElevated(label: 'Login',onPress: (){navigateAndFinish(context,const LoginScreen());}),
+
         ),
         const SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return SignUpScreen();
-                },
-              ),
-            );
-          },
-          style: ElevatedButton.styleFrom(
-              backgroundColor: kPrimaryLightColor, elevation: 0),
-          child: Text(
-            "Sign Up".toUpperCase(),
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
+        buttonElevated(label: 'Sign up',onPress: (){navigateAndFinish(context,const SignUpScreen());}),
       ],
     );
   }

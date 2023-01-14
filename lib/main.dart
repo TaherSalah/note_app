@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:notes/models/onBoarding/onBoarding_screen.dart';
 
-import 'models/notes/notes_screen.dart';
 
 void main()async {
   await Hive.initFlutter();
@@ -16,14 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
-          brightness: Brightness.dark,
+          brightness: Brightness.light,
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.black12
         )
       ),
-      home: const NotesScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }
