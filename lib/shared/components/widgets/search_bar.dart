@@ -5,18 +5,35 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){},
-      child: Container(
-        height: 47,
-        width: 50,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.white.withOpacity(0.05),
+    return Row(
+      children: [
+        InkWell(
+          onTap: (){},
+          child: Container(
+            height: 47,
+            width: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white.withOpacity(0.05),
 
+            ),
+            child:const Icon(Icons.search),
+          ),
         ),
-        child: Icon(Icons.search),
-      ),
+        InkWell(
+          onTap: (){},
+          child: Container(
+            height: 47,
+            width: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.white.withOpacity(0.05),
+
+            ),
+            child:const Icon(Icons.dark_mode_rounded),
+          ),
+        ),
+      ],
     );
   }
 }

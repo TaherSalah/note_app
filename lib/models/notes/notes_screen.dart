@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../shared/components/widgets/app_bar.dart';
 import '../../shared/components/widgets/custom_items_builder.dart';
 import '../../shared/components/widgets/custom_nav_bar.dart';
 import '../../shared/components/widgets/notes_list_view.dart';
@@ -10,19 +11,22 @@ class NotesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body:Column(
-        children: [
-
-          Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+      body:Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Column(
+          children: [
+            SizedBox(height: 14,),
+            const CustomAppBar(),
+            Expanded(
               child: ListView.separated(
                   physics:const BouncingScrollPhysics(),
                   itemBuilder: (context,i)=>const ListViewBuilder(),
-                  separatorBuilder:(context,i)=>const SizedBox(height: 1,) , itemCount: 4)
-          ),
+                  separatorBuilder:(context,i)=>const SizedBox(height: 1,) , itemCount: 4),
+            ),
 
-        ],
+          ],
 
+        ),
       ),
         bottomNavigationBar: const CustomBottomNavBar(),
 
@@ -46,6 +50,5 @@ class NotesScreen extends StatelessWidget {
 // ],),
 // actions: [
 // IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-// IconButton(onPressed: () {}, icon: const Icon(Icons.dark_mode_rounded)),
 // ],
 // ),
