@@ -3,7 +3,7 @@ import 'package:notes/models/Login/login_screen.dart';
 import 'package:notes/models/Welcome/welcome_screen.dart';
 import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
 
-import '../../shared/components/widgets/onBoarding_contents.dart';
+import '../../moduals/on_boarding_moduals/onBoarding_contents.dart';
 import '../../shared/style/size_config.dart';
 
 
@@ -24,11 +24,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   int currentPage = 0;
+  ///////// start screen navigate colors ///////
   List colors = const [
     Color(0xffDAD3C8),
     Color(0xffFFE5DE),
     Color(0xffDCF6E6),
   ];
+  ///////// end screen navigate colors ///////
 
   AnimatedContainer buildDots({
     int? index,
