@@ -59,13 +59,13 @@ class EditeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(
             vertical: 8,
           )),
-          const Padding(
+           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
             child: CustomFormField(
               hint: 'Note Title',
             ),
           ),
-          const Padding(
+           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.0),
             child: CustomFormField(
               hint: 'Note Description',

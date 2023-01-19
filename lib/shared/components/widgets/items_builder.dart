@@ -27,6 +27,7 @@ class NoteItemsBuilder extends StatelessWidget {
                     ),
                     SlidableAction(
                       onPressed: ((context) {
+                        // ignore: avoid_print
                         print('object');
                       }),
                       flex: 2,
@@ -35,9 +36,14 @@ class NoteItemsBuilder extends StatelessWidget {
                     )
                   ]),
                   endActionPane:
-                       ActionPane(motion: const ScrollMotion(), children: [
-                        SlidableAction(onPressed: ((context){}),backgroundColor: Colors.red,flex: 3,icon: Icons.delete_forever_outlined,)
-                      ]),
+                      ActionPane(motion: const ScrollMotion(), children: [
+                    SlidableAction(
+                      onPressed: ((context) {}),
+                      backgroundColor: Colors.red,
+                      flex: 3,
+                      icon: Icons.delete_forever_outlined,
+                    )
+                  ]),
                   child: ListTile(
                     title: Row(
                       children: [
