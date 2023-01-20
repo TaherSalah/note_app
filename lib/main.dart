@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:notes/models/onBoarding/onBoarding_screen.dart';
 import 'package:notes/moduals/notes_models/notes_model_data.dart';
+import 'package:notes/shared/cubit/cubit.dart';
+import 'package:notes/shared/cubit/state.dart';
 import 'package:notes/shared/style/constance.dart';
+import 'layout/layout_screen.dart';
 
-
-void main()async {
+void main() async {
   await Hive.initFlutter();
   //// open box ////
- await Hive.openBox(kNotesBox);
+  await Hive.openBox(kNotesBox);
   Hive.registerAdapter(NotesModelAdapter());
   runApp(const MyApp());
 }
@@ -19,15 +21,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          brightness: Brightness.light,
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-          backgroundColor: Colors.black12
-        )
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => NotesCubit()),
+      ],
+      child: BlocConsumer<NotesCubit, NotesStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+                brightness: Brightness.dark,
+                bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+                    backgroundColor: Colors.black12)),
+            home: const NotesScreen(),
+          );
+        },
       ),
-      home: const OnBoardingScreen(),
     );
   }
 }

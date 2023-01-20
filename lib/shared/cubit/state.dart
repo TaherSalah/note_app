@@ -12,3 +12,6 @@ class NotesErrorState extends NotesStates {
   NotesErrorState(this.error);
 
 }
+
+class NotesChangeBottomNavBarState extends NotesStates {}
+

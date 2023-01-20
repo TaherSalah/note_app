@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notes/models/notes/notes_screen.dart';
 import 'package:notes/shared/components/widgets/custom_button.dart';
-import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
-
+import '../../../layout/layout_screen.dart';
 import '../../../shared/components/widgets/already_have_an_account_acheck.dart';
 import '../../../shared/style/constance.dart';
-import '../../Signup/signup_screen.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
