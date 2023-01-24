@@ -20,27 +20,7 @@ class ListViewBuilder extends StatelessWidget {
                 child: const NoteItemsBuilder())
           ],
         ),
-        // const Positioned(
-        //     top:190,
-        //     left: 30,
-        //     child: CircleAvatar(
-        //       backgroundColor:  Color(0xffFF5328),
-        //       child: Icon(Icons.delete_forever_outlined,color: Colors.white),
-        //     )),
-        // const Positioned(
-        //     top:190,
-        //     right: 170,
-        //     child: CircleAvatar(
-        //       backgroundColor:  Color(0xff4C9CFE),
-        //
-        //       child: Icon(Icons.check_box,color: Colors.white),
-        //     )),
-        // const Positioned(
-        //     top:190,
-        //     right: 30,
-        //     child: CircleAvatar(
-        //       child: Icon(Icons.archive_outlined,color: Colors.white),
-        //     )),
+
       ],
     );
   }
