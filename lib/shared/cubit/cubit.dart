@@ -10,40 +10,24 @@ import 'package:notes/shared/components/widgets/add_bottom_sheet.dart';
 import 'package:notes/shared/cubit/state.dart';
 import 'package:notes/shared/style/constance.dart';
 
-
 class NotesCubit extends Cubit<NotesStates> {
   NotesCubit() : super(NotesInitialState());
 
-static NotesCubit get(context) =>BlocProvider.of(context);
+  static NotesCubit get(context) => BlocProvider.of(context);
 
-
-
-
- addNotes(NotesModel notesModel){
-   emit(NotesLoadingState());
-   var notesBox=Hive.box<NotesModel>(kNotesBox);
-   notesBox.add(notesModel).then((value) {
-     emit(NotesSuccessState());
-     // ignore: avoid_print
-     print(value.toString());
-   }).catchError((error){
-     emit(NotesErrorState(error));
-     // ignore: avoid_print
-     print(error.toString());
-   });
-   
- }
-
-
-
-
-
-
-
-
-
-
-
+  addNotes(NotesModel notesModel) {
+    emit(NotesLoadingState());
+    var notesBox = Hive.box<NotesModel>(kNotesBox);
+    notesBox.add(notesModel).then((value) {
+      emit(NotesSuccessState());
+      // ignore: avoid_print
+      print(value.toString());
+    }).catchError((error) {
+      emit(NotesErrorState(error));
+      // ignore: avoid_print
+      print(error.toString());
+    });
+  }
 
   int currentIndex = 0;
   List<Widget> screens = [

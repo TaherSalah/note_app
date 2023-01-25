@@ -45,6 +45,8 @@ dependencies:
   flutter_bloc: ^8.1.1
   flutter_progress_hud: ^2.0.2
   modal_progress_hud_nsn: ^0.3.0
+  flutter_settings_screens: ^0.3.3-null-safety+2
+  babstrap_settings_screen: ^0.1.3
 dev_dependencies:
   hive_generator:
   build_runner:

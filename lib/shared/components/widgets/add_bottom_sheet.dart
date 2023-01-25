@@ -13,34 +13,34 @@ class AddNoteBottomSheet extends StatefulWidget {
 }
 
 class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
-  bool isLoading=false;
+  bool isLoading = false;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-
-    return  SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
-      child: BlocConsumer<NotesCubit,NotesStates>(
-        listener: (context,state){
-          if(state is NotesErrorState){
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: BlocConsumer<NotesCubit, NotesStates>(
+        listener: (context, state) {
+          if (state is NotesErrorState) {
+            // ignore: avoid_print
             print(state.error.toString());
           }
-          if(state is NotesSuccessState){
-
+          if (state is NotesSuccessState) {
             Navigator.pop(context);
           }
         },
-        builder: (context,state){
+        builder: (context, state) {
           return ModalProgressHUD(
-              inAsyncCall: state is NotesLoadingState ?true:false,
-              child:const AddNotesForm());
+              inAsyncCall: state is NotesLoadingState ? true : false,
+              child: const AddNotesForm());
         },
       ),
     );
   }
 }
-
