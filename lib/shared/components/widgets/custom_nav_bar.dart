@@ -1,9 +1,10 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/shared/cubit/cubit.dart';
-import 'package:notes/shared/cubit/state.dart';
-import 'add_bottom_sheet.dart';
+import 'package:notes/models/add_notes/add_notes_screen.dart';
+import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
+import '../../../notes_cubit/cubit.dart';
+import '../../../notes_cubit/state.dart';
 
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -16,10 +17,10 @@ class CustomBottomNavBar extends StatefulWidget {
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NotesCubit,NotesStates>(
+    return BlocConsumer<NotesReadCubit,NotesReadStates>(
       listener: (context,state){},
       builder: (context,state){
-       var cubit=  NotesCubit.get(context);
+       var cubit=  NotesReadCubit.get(context);
         return ConvexAppBar(
           style: TabStyle.fixedCircle,
           backgroundColor: Colors.black12,
@@ -39,14 +40,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             TabItem(
               icon: IconButton(
                 onPressed: () {
-                  showModalBottomSheet(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)
-                      ),
-                      context: context,
-                      builder: (context) {
-                        return const AddNoteBottomSheet();
-                      });
+                navigate(context, AddNotesScreen());
                 },
                 icon: const Icon(
                   Icons.add,

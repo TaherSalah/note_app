@@ -5,7 +5,8 @@ Widget defaultButton(
       required BuildContext context,
       required String name,
       Color? color ,
-      required VoidCallback onPressed
+      required VoidCallback onPressed,
+      bool isLoading=false
     }
     )=>Padding(
   padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -18,8 +19,8 @@ Widget defaultButton(
       ),
       child: MaterialButton(
         onPressed: onPressed,
-        child:  Text(
-          name,
+        child:  isLoading? const CircularProgressIndicator(color: Colors.white,): Text(
+         name,
           style: TextStyle(
               color: color,
               fontSize: 18.0,

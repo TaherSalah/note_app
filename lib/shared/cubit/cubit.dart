@@ -29,17 +29,5 @@ class NotesCubit extends Cubit<NotesStates> {
     });
   }
 
-  int currentIndex = 0;
-  List<Widget> screens = [
-    const LayoutHome(),
-    const ArchivedScreen(),
-    const AddNoteBottomSheet(),
-    const DoneScreen(),
-    const SettingsScreen(),
-  ];
 
-  changeCurrentIndex(int index) {
-    currentIndex = index;
-    emit(NotesChangeBottomNavBarState());
-  }
 }

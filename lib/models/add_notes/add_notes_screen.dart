@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/moduals/notes_models/notes_model_data.dart';
-import 'package:notes/shared/components/widgets/text_field.dart';
-import 'package:notes/shared/components/widgets/validation.dart';
-import 'package:notes/shared/cubit/cubit.dart';
-import 'package:notes/shared/cubit/state.dart';
 
-import 'button.dart';
+import '../../moduals/notes_models/notes_model_data.dart';
+import '../../shared/components/widgets/button.dart';
+import '../../shared/components/widgets/text_field.dart';
+import '../../shared/components/widgets/validation.dart';
+import '../../shared/cubit/cubit.dart';
+import '../../shared/cubit/state.dart';
+
+class AddNotesScreen extends StatelessWidget {
+  const AddNotesScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body:SingleChildScrollView(child: const AddNotesForm()) ,
+    );
+  }
+}
 
 class AddNotesForm extends StatefulWidget {
   const AddNotesForm({Key? key}) : super(key: key);
@@ -20,7 +32,8 @@ class _AddNotesFormState extends State<AddNotesForm> {
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
-bool isLoading=false;
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotesCubit, NotesStates>(
@@ -61,7 +74,7 @@ bool isLoading=false;
                   Container(
                     height: 2,
                     width: 30,
-                    color: Colors.amber,
+                    color: Colors.red,
                   ),
                 ],
               ),
@@ -84,7 +97,7 @@ bool isLoading=false;
                 padding: EdgeInsets.symmetric(horizontal: 15.0),
                 child: CustomFormField(
                   hint: 'Title Description',
-                  maxLines: 6,
+                  maxLines: 20,
                   onSaved: (value) {
                     subTitle = value;
                   },
