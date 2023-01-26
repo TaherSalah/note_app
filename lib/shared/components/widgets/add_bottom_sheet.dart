@@ -23,24 +23,21 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: BlocConsumer<NotesCubit, NotesStates>(
-        listener: (context, state) {
-          if (state is NotesErrorState) {
-            // ignore: avoid_print
-            print(state.error.toString());
-          }
-          if (state is NotesSuccessState) {
-            Navigator.pop(context);
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-              inAsyncCall: state is NotesLoadingState ? true : false,
-              child: const AddNotesForm());
-        },
-      ),
+    return BlocConsumer<NotesCubit, NotesStates>(
+      listener: (context, state) {
+        if (state is NotesErrorState) {
+          // ignore: avoid_print
+          print(state.error.toString());
+        }
+        if (state is NotesSuccessState) {
+          Navigator.pop(context);
+        }
+      },
+      builder: (context, state) {
+        return ModalProgressHUD(
+            inAsyncCall: state is NotesLoadingState ? true : false,
+            child: SingleChildScrollView(child: const AddNotesForm()));
+      },
     );
   }
 }

@@ -15,17 +15,17 @@ class NotesCubit extends Cubit<NotesStates> {
 
   static NotesCubit get(context) => BlocProvider.of(context);
 
-  addNotes(NotesModel notesModel) {
+  addNotes(NotesModel notesModel) async {
     emit(NotesLoadingState());
     var notesBox = Hive.box<NotesModel>(kNotesBox);
-    notesBox.add(notesModel).then((value) {
+    await notesBox.add(notesModel).then((value) {
       emit(NotesSuccessState());
       // ignore: avoid_print
       print(value.toString());
     }).catchError((error) {
-      emit(NotesErrorState(error));
+      emit(NotesErrorState(error.toString()));
       // ignore: avoid_print
-      print(error.toString());
+      // print(error.toString());
     });
   }
 

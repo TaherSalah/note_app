@@ -9,10 +9,10 @@ import 'bloc_observer.dart';
 import 'layout/layout_screen.dart';
 
 void main() async {
-  Bloc.observer=SimpleBlocObserver();
+  Bloc.observer = SimpleBlocObserver();
   await Hive.initFlutter();
   //// open box ////
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NotesModel>(kNotesBox);
   Hive.registerAdapter(NotesModelAdapter());
   runApp(const MyApp());
 }
