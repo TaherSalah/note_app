@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:notes/moduals/notes_models/notes_model_data.dart';
 
 class NoteItemsBuilder extends StatelessWidget {
-  const NoteItemsBuilder({Key? key}) : super(key: key);
-
+const     NoteItemsBuilder({Key? key, required this.note,}) : super(key: key);
+final NotesModel note;
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8, bottom: 4),
       child: Column(
@@ -47,34 +49,34 @@ class NoteItemsBuilder extends StatelessWidget {
                   child: ListTile(
                     title: Row(
                       children: [
-                        const Text(
+                         Text(
                           maxLines: 1,
-                          'Go To GYM',
+                          note.title,
                           style: TextStyle(
                               overflow: TextOverflow.ellipsis,
-                              fontSize: 18,
+                              fontSize: 14,
                               color: Colors.black,
                               fontFamily: 'cairo',
                               fontWeight: FontWeight.bold),
                         ),
                         const Spacer(),
                         Text(
-                          'May,7,2023',
+                          note.date,
                           style: Theme.of(context)
                               .textTheme
                               .caption!
-                              .copyWith(color: Colors.black),
+                              .copyWith(color: Colors.black,fontSize: 4,fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                    subtitle: const Padding(
+                    subtitle:  Padding(
                       padding: EdgeInsets.symmetric(vertical: 9.0),
                       child: Padding(
                         padding: EdgeInsets.only(bottom: 8.0),
                         child: Text(
                           textAlign: TextAlign.justify,
                           maxLines: 2,
-                          'simply dummy text of the printing text of the printing text of the printing text of the printing text of the printing atext of the printing a and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,',
+                          note.subTitle,
                           style: TextStyle(
                               overflow: TextOverflow.ellipsis,
                               fontSize: 17,

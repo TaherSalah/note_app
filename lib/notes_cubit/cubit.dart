@@ -15,20 +15,15 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
   NotesReadCubit() : super(NotesReadInitialState());
 
   static NotesReadCubit get(context) => BlocProvider.of(context);
+  List<NotesModel>? notes;
 
-  addNotes()  {
-    try {
-      emit(NotesReadLoadingState());
-      var notesBox = Hive.box<NotesModel>(kNotesBox);
-      List<NotesModel>notesData = notesBox.values.toList();
-      emit(NotesReadSuccessState(notesData));
-    }catch(error){
-      emit(NotesReadErrorState(error.toString()));
-    }
+  fetchAllNotes() {
+    var notesBox = Hive.box<NotesModel>(kNotesBox);
+    notes= notesBox.values.toList();
+    // ignore: avoid_print
+    print('featch done');
 
   }
-
-
 
   int currentIndex = 0;
   List<Widget> screens = [
@@ -43,6 +38,4 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
     currentIndex = index;
     emit(NotesChangeBottomNavBarState());
   }
-
-
 }

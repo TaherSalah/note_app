@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
+import '../../notes_cubit/cubit.dart';
+import '../../notes_cubit/state.dart';
 
-import '../../shared/cubit/cubit.dart';
-import '../../shared/cubit/state.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool isDark=false;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NotesCubit,NotesStates>(
+    return BlocConsumer<NotesReadCubit,NotesReadStates>(
       listener: (context,state){},
       builder: (context,state){
           return Padding(

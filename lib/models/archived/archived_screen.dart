@@ -10,13 +10,9 @@ class ArchivedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return BlocConsumer<NotesCubit,NotesStates>(
-      listener: (context,state){},
-      builder: (context,state){
-        return Scaffold(
-          body: Text('ArcScreen'),
-        ) ;
-      },
-    );
+    return Scaffold(
+      body: Text('ArcScreen'),
+    ) ;
+
   }
 }

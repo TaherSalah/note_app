@@ -6,9 +6,20 @@ import '../notes_cubit/cubit.dart';
 import '../notes_cubit/state.dart';
 import '../shared/components/widgets/add_bottom_sheet.dart';
 
-class NotesScreen extends StatelessWidget {
+class NotesScreen extends StatefulWidget {
   const NotesScreen({super.key});
 
+  @override
+  State<NotesScreen> createState() => _NotesScreenState();
+}
+
+class _NotesScreenState extends State<NotesScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotesReadCubit, NotesReadStates>(

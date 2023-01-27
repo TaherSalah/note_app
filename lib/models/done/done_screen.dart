@@ -8,13 +8,9 @@ class DoneScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NotesCubit,NotesStates>(
-      listener: (context,state){},
-      builder: (context,state){
-        return Scaffold(
-          body: Text('DoneScreen'),
-        ) ;
-      },
-    );
+    return Scaffold(
+      body: Text('done'),
+    ) ;
+
   }
 }
