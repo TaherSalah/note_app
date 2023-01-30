@@ -34,7 +34,15 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
     const DoneScreen(),
     const SettingsScreen(),
   ];
+List<String> screenTitles=[
+  'Notes Tasks',
+  'Archived Tasks',
+  'Add New Task',
+  'Done Task',
+  'Settings',
 
+
+];
   changeCurrentIndex(int index) {
     currentIndex = index;
     emit(NotesChangeBottomNavBarState());

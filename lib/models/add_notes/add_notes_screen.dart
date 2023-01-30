@@ -19,7 +19,9 @@ class _AddNotesScreenState extends State<AddNotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Add New Task'),
+      ),
       body: const SingleChildScrollView(child: AddNotesForm()),
     );
   }
@@ -129,9 +131,9 @@ class _AddNotesFormState extends State<AddNotesForm> {
                             date: DateTime.now().toString(),
                             color: Colors.orange.value);
                         cubit.addNotes(notesModel);
-                        BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
+                        BlocProvider.of<NotesReadCubit>(context)
+                            .fetchAllNotes();
                         Navigator.pop(context);
-
                       } else {
                         autoValidateMode = AutovalidateMode.always;
                         setState(() {});

@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../shared/cubit/cubit.dart';
-import '../../shared/cubit/state.dart';
 
 class ArchivedScreen extends StatelessWidget {
   const ArchivedScreen({Key? key}) : super(key: key);
@@ -12,7 +8,6 @@ class ArchivedScreen extends StatelessWidget {
     // ignore: prefer_const_constructors
     return Scaffold(
       body: Text('ArcScreen'),
-    ) ;
-
+    );
   }
 }

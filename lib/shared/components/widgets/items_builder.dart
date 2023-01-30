@@ -78,8 +78,8 @@ class NoteItemsBuilder extends StatelessWidget {
                                     .textTheme
                                     .caption!
                                     .copyWith(
-                                        color: Colors.black,
-                                        fontSize: 4,
+                                        color: Colors.grey,
+                                        fontSize: 8,
                                         fontWeight: FontWeight.bold),
                               ),
                             ],

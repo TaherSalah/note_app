@@ -31,7 +31,7 @@ class _NotesScreenState extends State<NotesScreen> {
         return Scaffold(
           appBar: AppBar(
             toolbarHeight: 70,
-            title: Text('Notes Taskes'),
+            title: Text(cubit.screenTitles[cubit.currentIndex]),
             actions: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
