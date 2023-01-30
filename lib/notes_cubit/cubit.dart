@@ -20,6 +20,7 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
   fetchAllNotes() {
     var notesBox = Hive.box<NotesModel>(kNotesBox);
     notes= notesBox.values.toList();
+    emit(NotesReadSuccessState());
     // ignore: avoid_print
     print('featch done');
 

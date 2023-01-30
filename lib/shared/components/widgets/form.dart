@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes/moduals/notes_models/notes_model_data.dart';
+import 'package:notes/notes_cubit/cubit.dart';
 import 'package:notes/shared/components/widgets/text_field.dart';
 import 'package:notes/shared/components/widgets/validation.dart';
 import 'package:notes/shared/cubit/cubit.dart';
@@ -21,7 +22,8 @@ class _AddNotesFormState extends State<AddNotesForm> {
 
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, subTitle;
-bool isLoading=false;
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -29,8 +31,9 @@ bool isLoading=false;
       child: BlocConsumer<NotesCubit, NotesStates>(
         listener: (context, state) {},
         builder: (context, state) {
-          DateTime dateTime=DateTime.now();
-          var formateCurrentDate=DateFormat('yyyy-MM-dd KK:mm:ss').format(dateTime);
+          DateTime dateTime = DateTime.now();
+          var formateCurrentDate =
+              DateFormat('yyyy-MM-dd KK:mm:ss').format(dateTime);
           var cubit = NotesCubit.get(context);
           return Form(
             key: formKey,
@@ -114,6 +117,7 @@ bool isLoading=false;
                             date: formateCurrentDate,
                             color: Colors.orange.value);
                         cubit.addNotes(notesModel);
+                        BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                         setState(() {});

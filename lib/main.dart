@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes/moduals/notes_models/notes_model_data.dart';
 import 'package:notes/notes_cubit/cubit.dart';
+import 'package:notes/shared/cubit/cubit.dart';
 import 'package:notes/shared/style/constance.dart';
 import 'bloc_observer.dart';
 import 'layout/layout_screen.dart';
@@ -22,10 +23,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => NotesReadCubit()),
-      ],
+    return BlocProvider(
+      create: (context) => NotesReadCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

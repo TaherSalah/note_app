@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/shared/cubit/cubit.dart';
+import 'package:notes/shared/cubit/state.dart';
 import '../../shared/components/widgets/custom_nav_bar.dart';
 import '../notes_cubit/cubit.dart';
 import '../notes_cubit/state.dart';
@@ -20,6 +21,7 @@ class _NotesScreenState extends State<NotesScreen> {
     BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotesReadCubit, NotesReadStates>(
@@ -48,7 +50,7 @@ class _NotesScreenState extends State<NotesScreen> {
           bottomNavigationBar: const CustomBottomNavBar(),
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.amber,
-            child: const Icon(Icons.add,size: 25),
+            child: const Icon(Icons.add, size: 25),
             onPressed: () {
               showModalBottomSheet(
                   isScrollControlled: true,
@@ -58,6 +60,7 @@ class _NotesScreenState extends State<NotesScreen> {
                   builder: (context) {
                     return const AddNoteBottomSheet();
                   });
+
             },
           ),
         );
@@ -65,20 +68,3 @@ class _NotesScreenState extends State<NotesScreen> {
     );
   }
 }
-
-// AppBar(
-//
-// title: Row(children: [
-// Image.asset('assets/images/logo 2.png',),
-// Text(
-// 'Notes',
-// style: Theme.of(context)
-// .textTheme
-//     .bodyText1!
-// .copyWith(fontSize: 30, fontWeight: FontWeight.bold),
-// ),
-// ],),
-// actions: [
-// IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-// ],
-// ),

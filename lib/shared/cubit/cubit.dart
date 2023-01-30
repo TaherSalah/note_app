@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
-import 'package:notes/models/archived/archived_screen.dart';
-import 'package:notes/models/done/done_screen.dart';
-import 'package:notes/models/home_notes/notes_screen.dart';
-import 'package:notes/models/settings/settings_screen.dart';
 import 'package:notes/moduals/notes_models/notes_model_data.dart';
-import 'package:notes/shared/components/widgets/add_bottom_sheet.dart';
 import 'package:notes/shared/cubit/state.dart';
 import 'package:notes/shared/style/constance.dart';
 

@@ -40,7 +40,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             TabItem(
               icon: IconButton(
                 onPressed: () {
-                navigate(context, AddNotesScreen());
+                  navigate(context, AddNotesScreen());
                 },
                 icon: const Icon(
                   Icons.add,

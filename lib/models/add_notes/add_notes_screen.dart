@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../moduals/notes_models/notes_model_data.dart';
+import '../../notes_cubit/cubit.dart';
 import '../../shared/components/widgets/button.dart';
 import '../../shared/components/widgets/text_field.dart';
 import '../../shared/components/widgets/validation.dart';
 import '../../shared/cubit/cubit.dart';
 import '../../shared/cubit/state.dart';
 
-class AddNotesScreen extends StatelessWidget {
+class AddNotesScreen extends StatefulWidget {
   const AddNotesScreen({Key? key}) : super(key: key);
 
+  @override
+  State<AddNotesScreen> createState() => _AddNotesScreenState();
+}
+
+class _AddNotesScreenState extends State<AddNotesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body:const SingleChildScrollView(child:  AddNotesForm()) ,
+      body: const SingleChildScrollView(child: AddNotesForm()),
     );
   }
 }
@@ -124,6 +129,9 @@ class _AddNotesFormState extends State<AddNotesForm> {
                             date: DateTime.now().toString(),
                             color: Colors.orange.value);
                         cubit.addNotes(notesModel);
+                        BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
+                        Navigator.pop(context);
+
                       } else {
                         autoValidateMode = AutovalidateMode.always;
                         setState(() {});

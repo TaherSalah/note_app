@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/moduals/notes_models/notes_model_data.dart';
-
 import '../../notes_cubit/cubit.dart';
 import '../../notes_cubit/state.dart';
 import '../../shared/components/widgets/notes_list_view.dart';
@@ -23,13 +21,14 @@ class _LayoutHomeState extends State<LayoutHome> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NotesReadCubit, NotesReadStates>(
+    return BlocConsumer<NotesReadCubit, NotesReadStates>(
+      listener: (context, state) {},
       builder: (context, state) {
-        var cubit=BlocProvider.of<NotesReadCubit>(context).notes??[];
+        var cubit = BlocProvider.of<NotesReadCubit>(context).notes!;
         // List<NotesModel> cubit =
         //     BlocProvider.of<NotesReadCubit>(context).notes!;
         return Scaffold(
-          body: Padding(
+          body:  Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
               children: [
@@ -38,8 +37,9 @@ class _LayoutHomeState extends State<LayoutHome> {
                 ),
                 Expanded(
                   child: ListView.separated(
-                      physics:  BouncingScrollPhysics(),
-                      itemBuilder: (context, i) =>  ListViewBuilder(note: cubit[i]),
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, i) =>
+                          ListViewBuilder(note: cubit[i]),
                       separatorBuilder: (context, i) => const SizedBox(
                             height: 1,
                           ),
