@@ -92,8 +92,8 @@ class _AddNotesFormState extends State<AddNotesForm> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomFormField(
+                    maxLines: 15,
                     hint: 'Title Description',
-                    maxLines: 6,
                     onSaved: (value) {
                       subTitle = value;
                     },
@@ -118,7 +118,8 @@ class _AddNotesFormState extends State<AddNotesForm> {
                             date: formateCurrentDate,
                             color: Colors.orange.value);
                         cubit.addNotes(notesModel);
-                        BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
+                        BlocProvider.of<NotesReadCubit>(context)
+                            .fetchAllNotes();
                         Navigator.pop(context);
                       } else {
                         autovalidateMode = AutovalidateMode.always;

@@ -6,7 +6,7 @@ import 'package:notes/shared/components/widgets/navigate_and_finish.dart';
 import 'items_builder.dart';
 
 class ListViewBuilder extends StatelessWidget {
-   ListViewBuilder({Key? key, required this.note}) : super(key: key);
+   const ListViewBuilder({Key? key, required this.note}) : super(key: key);
 final NotesModel note;
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ final NotesModel note;
       children:  [
         InkWell(
           onTap: (){
-            navigate(context, const EditeScreen());
+            navigate(context,  EditeScreen(notesModel: note,));
           },
             child:  NoteItemsBuilder(note: note,))
       ],
