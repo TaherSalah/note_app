@@ -5,6 +5,7 @@ import 'package:notes/shared/cubit/state.dart';
 import '../../shared/components/widgets/custom_nav_bar.dart';
 import '../notes_cubit/cubit.dart';
 import '../notes_cubit/state.dart';
+import '../shared/components/show_toast.dart';
 import '../shared/components/widgets/add_bottom_sheet.dart';
 
 class NotesScreen extends StatefulWidget {
@@ -25,7 +26,12 @@ class _NotesScreenState extends State<NotesScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotesReadCubit, NotesReadStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if(state is NotesSuccessState){
+          showToast(state: ToastStates.success,text: 'Add Notes done');
+
+        }
+      },
       builder: (context, state) {
         var cubit = NotesReadCubit.get(context);
         return Scaffold(

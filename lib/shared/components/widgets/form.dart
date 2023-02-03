@@ -81,6 +81,7 @@ class _AddNotesFormState extends State<AddNotesForm> {
                   padding: EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomFormField(
                     maxLength: 35,
+
                     hint: 'Note Title',
                     onSaved: (value) {
                       title = value;
@@ -90,7 +91,7 @@ class _AddNotesFormState extends State<AddNotesForm> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomFormField(
                     maxLines: 15,
                     hint: 'Title Description',

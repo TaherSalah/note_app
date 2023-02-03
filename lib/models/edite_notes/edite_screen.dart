@@ -27,7 +27,9 @@ class _EditeScreenState extends State<EditeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotesReadCubit, NotesReadStates>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -80,21 +82,23 @@ class _EditeScreenState extends State<EditeScreen> {
                   vertical: 8,
                 )),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomFormField(
                     hint: widget.notesModel.title,
                     onChanged: (value) {
                       title = value;
+                      setState(() {});
                     },
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  padding:const EdgeInsets.symmetric(horizontal: 15.0),
                   child: CustomFormField(
                     hint: widget.notesModel.subTitle,
                     maxLines: 18,
                     onChanged: (value) {
                       subtitle = value;
+                      setState(() {});
                     },
                   ),
                 ),
@@ -114,6 +118,8 @@ class _EditeScreenState extends State<EditeScreen> {
                       widget.notesModel.save();
                       BlocProvider.of<NotesReadCubit>(context).fetchAllNotes();
                       Navigator.pop(context);
+
+                      setState(() {});
                     },
                   ),
                 ),

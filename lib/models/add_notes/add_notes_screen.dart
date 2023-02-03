@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/shared/components/show_toast.dart';
 import '../../moduals/notes_models/notes_model_data.dart';
 import '../../notes_cubit/cubit.dart';
 import '../../shared/components/widgets/button.dart';
@@ -46,7 +47,11 @@ class _AddNotesFormState extends State<AddNotesForm> {
     return BlocProvider(
       create: (context) => NotesCubit(),
       child: BlocConsumer<NotesCubit, NotesStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if(state is NotesSuccessState){
+            showToast(state: ToastStates.success,text: 'Add Notes success');
+          }
+        },
         builder: (context, state) {
           var cubit = NotesCubit.get(context);
           return Form(
@@ -97,6 +102,9 @@ class _AddNotesFormState extends State<AddNotesForm> {
                     hint: 'Note Title',
                     onSaved: (value) {
                       title = value;
+                      setState(() {
+
+                      });
                     },
                     onChanged: (value) {},
                     validator: Validator.name,
@@ -109,9 +117,14 @@ class _AddNotesFormState extends State<AddNotesForm> {
                     maxLines: 25,
                     onSaved: (value) {
                       subTitle = value;
+                      setState(() {
+
+                      });
+
                     },
                     onChanged: (value) {},
                     validator: Validator.name,
+
                   ),
                 ),
                 const SizedBox(
@@ -136,8 +149,9 @@ class _AddNotesFormState extends State<AddNotesForm> {
                         Navigator.pop(context);
                       } else {
                         autoValidateMode = AutovalidateMode.always;
-                        setState(() {});
                       }
+                      setState(() {});
+
                     },
                   ),
                 ),

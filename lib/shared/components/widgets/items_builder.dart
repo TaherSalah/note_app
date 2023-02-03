@@ -4,6 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:notes/moduals/notes_models/notes_model_data.dart';
 import 'package:notes/notes_cubit/cubit.dart';
 import 'package:notes/notes_cubit/state.dart';
+import 'package:notes/shared/components/show_toast.dart';
 
 class NoteItemsBuilder extends StatelessWidget {
   const NoteItemsBuilder({
@@ -51,6 +52,7 @@ class NoteItemsBuilder extends StatelessWidget {
                           SlidableAction(
                             onPressed: ((context) {
                               note.delete();
+                              showToast(state: ToastStates.warning,text: 'Delete Notes Done');
                               cubit.fetchAllNotes();
                             }),
                             backgroundColor: Colors.red,

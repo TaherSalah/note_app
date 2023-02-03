@@ -16,7 +16,7 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
 
   static NotesReadCubit get(context) => BlocProvider.of(context);
   List<NotesModel>? notes;
-
+NotesModel? notesModel;
   fetchAllNotes() {
     var notesBox = Hive.box<NotesModel>(kNotesBox);
     notes= notesBox.values.toList();
@@ -29,7 +29,7 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
   int currentIndex = 0;
   List<Widget> screens = [
     const LayoutHome(),
-    const ArchivedScreen(),
+     ArchivedScreen(),
     const AddNoteBottomSheet(),
     const DoneScreen(),
     const SettingsScreen(),

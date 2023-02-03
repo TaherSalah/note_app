@@ -18,6 +18,9 @@ final String? Function(String?)? validator;
           height: 20,
         ),
         TextFormField(
+          enabled:true,
+          keyboardType: TextInputType.text,
+          autocorrect:true ,
           maxLength:maxLength ,
           onSaved: onSaved,
           onChanged: onChanged,
