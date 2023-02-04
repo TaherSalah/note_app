@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/notes_cubit/cubit.dart';
-import 'package:notes/shared/components/show_toast.dart';
 import 'package:notes/shared/cubit/cubit.dart';
 import 'package:notes/shared/cubit/state.dart';
 import 'form.dart';

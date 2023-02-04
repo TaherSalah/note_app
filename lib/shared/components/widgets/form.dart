@@ -9,6 +9,7 @@ import 'package:notes/shared/cubit/cubit.dart';
 import 'package:notes/shared/cubit/state.dart';
 
 import 'button.dart';
+import 'colors_list_view.dart';
 
 class AddNotesForm extends StatefulWidget {
   const AddNotesForm({Key? key}) : super(key: key);
@@ -105,6 +106,7 @@ class _AddNotesFormState extends State<AddNotesForm> {
                 const SizedBox(
                   height: 15,
                 ),
+                ColorsItemsBuilder(),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: defaultButton(
