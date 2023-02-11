@@ -23,8 +23,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesReadCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => NotesReadCubit(),),
+        BlocProvider(create: (context) => AddNotesCubit(),),
+
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(

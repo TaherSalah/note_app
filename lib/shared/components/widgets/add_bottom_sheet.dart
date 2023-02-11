@@ -27,8 +27,8 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: BlocConsumer<NotesCubit, NotesStates>(
+      create: (context) => AddNotesCubit(),
+      child: BlocConsumer<AddNotesCubit, NotesStates>(
         listener: (context, state) {
           if (state is NotesErrorState) {
             // ignore: avoid_print

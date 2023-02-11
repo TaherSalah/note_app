@@ -5,12 +5,14 @@ import 'package:notes/moduals/notes_models/notes_model_data.dart';
 import 'package:notes/shared/cubit/state.dart';
 import 'package:notes/shared/style/constance.dart';
 
-class NotesCubit extends Cubit<NotesStates> {
-  NotesCubit() : super(NotesInitialState());
+class AddNotesCubit extends Cubit<NotesStates> {
+  AddNotesCubit() : super(NotesInitialState());
 
-  static NotesCubit get(context) => BlocProvider.of(context);
-
+  static AddNotesCubit get(context) => BlocProvider.of(context);
+// Color color=CupertinoColors.white;
+  Color color = const Color(0xffFEFCF3);
   addNotes(NotesModel notesModel) async {
+    notesModel.color=color.value;
     emit(NotesLoadingState());
     var notesBox = Hive.box<NotesModel>(kNotesBox);
     await notesBox.add(notesModel).then((value) {

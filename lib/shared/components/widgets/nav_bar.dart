@@ -12,7 +12,7 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NotesCubit, NotesStates>(
+    return BlocBuilder<AddNotesCubit, NotesStates>(
       builder: (context, state) {
         return ConvexAppBar(
           style: TabStyle.fixedCircle,

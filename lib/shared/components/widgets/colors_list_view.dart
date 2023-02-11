@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/shared/cubit/state.dart';
+
+import '../../cubit/cubit.dart';
 
 class ColorsItemsBuilder extends StatefulWidget {
   ColorsItemsBuilder({
@@ -8,54 +12,60 @@ class ColorsItemsBuilder extends StatefulWidget {
   @override
   State<ColorsItemsBuilder> createState() => _ColorsItemsBuilderState();
   int currentIndex = 0;
-  List<Color>colorList=[
-    Color(0xff698269),
-    Color(0xffB99B6B),
-    Color(0xffF1DBBF),
-    Color(0xffAA5656),
-    Color(0xffABC270),
-    Color(0xffFEC868),
-    Color(0xffB5F1CC),
-    Color(0xffFCC2FC),
-    Color(0xffF8C4B4),
-    Color(0xffE5EBB2),
 
+   List<Color> colorList = const [
+    Color(0xffFEFCF3),
+    Color(0xffF5EBE0),
+    Color(0xffF0DBDB),
+    Color(0xffDBA39A),
+    Color(0xffADA2FF),
+    Color(0xffC0DEFF),
+    Color(0xffFFE5F1),
+    Color(0xffFFF8E1),
   ];
-
 }
 
 class _ColorsItemsBuilderState extends State<ColorsItemsBuilder> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 25 * 2,
-      child: ListView.builder(
-        itemCount: widget.colorList.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-              onTap: () {
-                widget.currentIndex = index;
-                setState(() {});
-              },
-              child: ColorList(
+    return BlocProvider(
+      create: (context) => AddNotesCubit(),
+      child: BlocConsumer<AddNotesCubit,NotesStates>(
+        listener: (context, state) {
 
-                isActive: widget.currentIndex == index,
-                color: widget.colorList[index],
-              ));
         },
+        builder: (context, state) {
+          return  SizedBox(
+            height: 25 * 2,
+            child: ListView.builder(
+              itemCount: widget.colorList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                    onTap: () {
+                      widget.currentIndex = index;
+                      BlocProvider.of<AddNotesCubit>(context).color=widget.colorList[index];
+                      print('gjgfjhj');
+
+                      setState(() {});
+                    },
+                    child: ColorList(
+                      isActive: widget.currentIndex == index,
+                      color: widget.colorList[index],
+                    ));
+              },
+            ),
+          );
+        },
+
       ),
     );
   }
 }
 
-
-
-
-
-
 class ColorList extends StatefulWidget {
-   ColorList({Key? key, required this.isActive, required this.color}) : super(key: key);
+  ColorList({Key? key, required this.isActive, required this.color})
+      : super(key: key);
 
   @override
   State<ColorList> createState() => _ColorListState();
@@ -69,15 +79,11 @@ class _ColorListState extends State<ColorList> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: widget.isActive
-          ?  CircleAvatar(
-              radius: 30,
-              backgroundColor: widget.color,
-              child: CircleAvatar(
-                backgroundColor: widget.color,
-                radius: 23,
-              ),
-            )
-          :  CircleAvatar(
+          ? const CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 23,
+          )
+          : CircleAvatar(
               backgroundColor: widget.color,
               radius: 25,
             ),

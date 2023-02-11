@@ -28,14 +28,14 @@ class _AddNotesFormState extends State<AddNotesForm> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: BlocConsumer<NotesCubit, NotesStates>(
+      create: (context) => AddNotesCubit(),
+      child: BlocConsumer<AddNotesCubit, NotesStates>(
         listener: (context, state) {},
         builder: (context, state) {
           DateTime dateTime = DateTime.now();
           var formateCurrentDate =
               DateFormat('yyyy-MM-dd KK:mm:ss').format(dateTime);
-          var cubit = NotesCubit.get(context);
+          var cubit = AddNotesCubit.get(context);
           return Form(
             key: formKey,
             autovalidateMode: autovalidateMode,
@@ -121,8 +121,10 @@ class _AddNotesFormState extends State<AddNotesForm> {
                             date: formateCurrentDate,
                             color: Colors.orange.value);
                         cubit.addNotes(notesModel);
+                        
                         BlocProvider.of<NotesReadCubit>(context)
                             .fetchAllNotes();
+
                         Navigator.pop(context);
                       } else {
                         autovalidateMode = AutovalidateMode.always;

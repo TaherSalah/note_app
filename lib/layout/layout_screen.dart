@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/shared/cubit/cubit.dart';
 import 'package:notes/shared/cubit/state.dart';
 import '../../shared/components/widgets/custom_nav_bar.dart';
 import '../notes_cubit/cubit.dart';
