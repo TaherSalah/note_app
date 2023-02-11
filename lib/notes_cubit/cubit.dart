@@ -28,15 +28,15 @@ NotesModel? notesModel;
 
   }
 
-
+List<NotesModel>doneNotes=[];
 
 
   int currentIndex = 0;
   List<Widget> screens = [
     const LayoutHome(),
-     ArchivedScreen(),
+     const ArchivedScreen(),
     const AddNoteBottomSheet(),
-     DoneScreen(),
+      DoneScreen(),
     const SettingsScreen(),
   ];
 List<String> screenTitles=[

@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:notes/moduals/notes_models/notes_model_data.dart';
 import 'package:notes/notes_cubit/cubit.dart';
 import 'package:notes/shared/components/widgets/text_field.dart';
-import 'package:notes/shared/components/widgets/validation.dart';
+import 'package:notes/shared/components/validation.dart';
 import 'package:notes/shared/cubit/cubit.dart';
 import 'package:notes/shared/cubit/state.dart';
 

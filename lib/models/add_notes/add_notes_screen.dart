@@ -5,7 +5,7 @@ import '../../moduals/notes_models/notes_model_data.dart';
 import '../../notes_cubit/cubit.dart';
 import '../../shared/components/widgets/button.dart';
 import '../../shared/components/widgets/text_field.dart';
-import '../../shared/components/widgets/validation.dart';
+import '../../shared/components/validation.dart';
 import '../../shared/cubit/cubit.dart';
 import '../../shared/cubit/state.dart';
 
@@ -48,8 +48,8 @@ class _AddNotesFormState extends State<AddNotesForm> {
       create: (context) => AddNotesCubit(),
       child: BlocConsumer<AddNotesCubit, NotesStates>(
         listener: (context, state) {
-          if(state is NotesSuccessState){
-            showToast(state: ToastStates.success,text: 'Add Notes success');
+          if (state is NotesSuccessState) {
+            showToast(state: ToastStates.success, text: 'Add Notes success');
           }
         },
         builder: (context, state) {
@@ -102,9 +102,7 @@ class _AddNotesFormState extends State<AddNotesForm> {
                     hint: 'Note Title',
                     onSaved: (value) {
                       title = value;
-                      setState(() {
-
-                      });
+                      setState(() {});
                     },
                     onChanged: (value) {},
                     validator: Validator.name,
@@ -117,14 +115,10 @@ class _AddNotesFormState extends State<AddNotesForm> {
                     maxLines: 25,
                     onSaved: (value) {
                       subTitle = value;
-                      setState(() {
-
-                      });
-
+                      setState(() {});
                     },
                     onChanged: (value) {},
                     validator: Validator.name,
-
                   ),
                 ),
                 const SizedBox(
@@ -151,7 +145,6 @@ class _AddNotesFormState extends State<AddNotesForm> {
                         autoValidateMode = AutovalidateMode.always;
                       }
                       setState(() {});
-
                     },
                   ),
                 ),

@@ -6,13 +6,20 @@ import 'package:notes/notes_cubit/cubit.dart';
 import 'package:notes/notes_cubit/state.dart';
 import 'package:notes/shared/components/show_toast.dart';
 
-class NoteItemsBuilder extends StatelessWidget {
+import '../../../models/done/done_screen.dart';
+
+class NoteItemsBuilder extends StatefulWidget {
   const NoteItemsBuilder({
     Key? key,
     required this.note,
   }) : super(key: key);
   final NotesModel note;
 
+  @override
+  State<NoteItemsBuilder> createState() => _NoteItemsBuilderState();
+}
+
+class _NoteItemsBuilderState extends State<NoteItemsBuilder> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<NotesReadCubit, NotesReadStates>(
@@ -39,8 +46,19 @@ class NoteItemsBuilder extends StatelessWidget {
                             flex: 2,
                           ),
                           SlidableAction(
+
                             onPressed: ((context) {
-                              // ignore: avoid_print
+                              setState(() {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => DoneScreen(
+                                              note: widget.note,
+                                            )));
+
+                                BlocProvider.of<NotesReadCubit>(context)
+                                    .fetchAllNotes();
+                              });
                             }),
                             flex: 2,
                             backgroundColor: Colors.black,
@@ -51,8 +69,10 @@ class NoteItemsBuilder extends StatelessWidget {
                             ActionPane(motion: const ScrollMotion(), children: [
                           SlidableAction(
                             onPressed: ((context) {
-                              note.delete();
-                              showToast(state: ToastStates.warning,text: 'Delete Notes Done');
+                              widget.note.delete();
+                              showToast(
+                                  state: ToastStates.warning,
+                                  text: 'Delete Notes Done');
                               cubit.fetchAllNotes();
                             }),
                             backgroundColor: Colors.red,
@@ -65,7 +85,7 @@ class NoteItemsBuilder extends StatelessWidget {
                             children: [
                               Text(
                                 maxLines: 1,
-                                note.title,
+                                widget.note.title,
                                 style: const TextStyle(
                                     overflow: TextOverflow.ellipsis,
                                     fontSize: 14,
@@ -75,7 +95,7 @@ class NoteItemsBuilder extends StatelessWidget {
                               ),
                               const Spacer(),
                               Text(
-                                note.date,
+                                widget.note.date,
                                 style: Theme.of(context)
                                     .textTheme
                                     .caption!
@@ -93,7 +113,7 @@ class NoteItemsBuilder extends StatelessWidget {
                               child: Text(
                                 textAlign: TextAlign.justify,
                                 maxLines: 2,
-                                note.subTitle,
+                                widget.note.subTitle,
                                 style: const TextStyle(
                                     overflow: TextOverflow.ellipsis,
                                     fontSize: 17,
