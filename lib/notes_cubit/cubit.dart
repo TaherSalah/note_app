@@ -19,19 +19,24 @@ class NotesReadCubit extends Cubit<NotesReadStates> {
 NotesModel? notesModel;
   fetchAllNotes() {
     var notesBox = Hive.box<NotesModel>(kNotesBox);
+
     notes= notesBox.values.toList();
+
     emit(NotesReadSuccessState());
     // ignore: avoid_print
     print('featch done');
 
   }
 
+
+
+
   int currentIndex = 0;
   List<Widget> screens = [
     const LayoutHome(),
      ArchivedScreen(),
     const AddNoteBottomSheet(),
-    const DoneScreen(),
+     DoneScreen(),
     const SettingsScreen(),
   ];
 List<String> screenTitles=[

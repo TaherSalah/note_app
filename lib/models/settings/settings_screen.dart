@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
 import '../../notes_cubit/cubit.dart';
 import '../../notes_cubit/state.dart';
+import '../../shared/components/widgets/my_divider.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -71,8 +72,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   blurRadius: 5)
                             ]),
                         child: Row(
-                          children: [
-                            const Padding(
+                          children: const [
+                            Padding(
                               padding: EdgeInsets.all(4.0),
                               child: Text(
                                 'تعديل الملف الشخصي',
@@ -81,8 +82,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
-                            const Spacer(),
-                            const Padding(
+                            Spacer(),
+                            Padding(
                               padding: EdgeInsets.symmetric(horizontal: 5),
                               child: Icon(Icons.arrow_back_ios_new_outlined,
                                   color: Colors.grey),
@@ -96,6 +97,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(
                   height: 25,
                 ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
+                  child: Container(
+                    child: const Text(
+                      'إعدادت عامة',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'cairo',
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 8,),
+
+                myDivider(),
+                SizedBox(height: 8,),
+
                 SettingsItem(
                   onTap: () {},
                   icons: CupertinoIcons.pencil_outline,
@@ -148,8 +166,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   title: 'مساعدة',
                   subtitle: "لتقديم مساعدة اكثر حول البرنامج",
                 ),
+                SizedBox(height: 15,),
+                myDivider(),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                   child: Container(
                     child: const Text(
                       'إعدادت الحساب',
@@ -160,6 +180,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                 ),
+                SizedBox(height: 8,),
                 // You can add a settings title
                 SettingsItem(
                   onTap: () {},
